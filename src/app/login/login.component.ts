@@ -17,4 +17,16 @@ export class LoginComponent {
         this.user = new User();
 
     }
+
+    validateLogin() {
+        if (this.user.username && this.user.password) {
+            this.loginService.validateLogin(this.user).subscribe(result => {
+                console.log('result is ', result);
+            }, error => {
+                console.log('error is ', error);
+            })
+        } else {
+            alert('enter username and password');
+        }
+    }
 }
